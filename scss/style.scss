@@ -1,0 +1,687 @@
+@import 'swiper'; 
+@import 'animations'; 
+
+// LAYOUT
+
+
+//HEADER: Main nav
+ul.menu.nav-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 80px);
+    display: none;
+    background-color: #FFF5E9;
+
+    li {
+        font-family: "Roboto Mono", monospace;
+        font-size: 64px;
+        color: black;
+        max-width: max-content;
+        text-align: center;
+        opacity: 0;  // Initialement invisible
+        transform: translateY(100%);  // Hors de l'écran pour l'animation
+
+        & .logo {
+            width: 154px;
+        }
+
+        &.studio {
+            text-transform: uppercase;
+            font-size: 20px;
+            padding-top: 5em;
+            margin-bottom: 0;
+        }
+
+        a {
+            cursor: pointer;
+            transition: all 0.3s ease;
+
+            &:hover {
+                text-shadow: 0 0 14px #FF5C00;
+                color: black;
+            }
+        }
+
+        &:nth-child(1) {
+            animation: linksMoveUp 3s ease-out forwards;
+            animation-delay: 0s;
+        }
+    
+        &:nth-child(2) {
+            animation: linksMoveUp 3s ease-out forwards;
+            animation-delay: 0.5s;
+        }
+    
+        &:nth-child(3) {
+            animation: linksMoveUp 3s ease-out forwards;
+            animation-delay: 1s;
+        }
+    
+        &:nth-child(4) {
+            animation: linksMoveUp 3s ease-out forwards;
+            animation-delay: 1.5s;
+        }
+
+        &:nth-child(5) {
+            animation: linksMoveUp 3s ease-out forwards;
+            animation-delay: 2s;
+        }
+
+        &:nth-child(6) {
+            animation: linksMoveUp 3s ease-out forwards;
+            animation-delay: 2.5s;
+        }
+
+        @media all and (max-width: 700px) {
+            font-size: 50px;
+        }
+
+        @media (max-width: 365px) {
+            font-size: 40px;
+        }
+    }
+}
+
+.main-navigation {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+        @media (max-width: 700px) {
+        flex-direction: column;
+        padding: 1rem 0 1rem 0;
+        }
+
+
+    .site-title {
+        text-align: center;
+        @media (max-width: 700px) {
+            margin-bottom: 1.5rem;
+        }
+
+        @media (min-width: 320px) and (max-width: 365px) {
+            font-size: 18px;  
+        }
+    }
+
+    .menu-toggle {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%); 
+        right: 9%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 40px;
+        height: 18px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        z-index: 10;
+        transition: transform 0.3s ease;
+
+            @media (max-width: 700px) {
+                position: initial;
+                display: block; // Affiche le bouton toggle sur les petits écrans
+                transform: translate(-50%, -50%); 
+            }
+    
+        .line {
+            width: 40px;
+            height: 1px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            border-radius: 4px;
+            background-color: black; 
+            transition: all 0.3s ease-in-out; 
+
+            &:nth-of-type(2) {
+                top: calc(50% - 9px);
+            }
+
+            &:nth-of-type(3) {
+                top: calc(50% + 9px);
+            }
+        }
+
+        &.active { // Class for X transformation
+            .line {
+                &:nth-of-type(1) {
+                    transform: translateY(0px) rotate(45deg); 
+                }
+    
+                &:nth-of-type(2) {
+                    opacity: 0; //Hiding the second line
+                }
+    
+                &:nth-of-type(3) {
+                    transform: translateY(-10px) rotate(-45deg);
+                }
+            }
+        }
+    }
+}
+
+// Nav menu Layout
+ul.menu {
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+
+    li:first-child {
+        position: relative;
+        &::before {
+            content: "";
+            background-image: url('/wp-content/themes/foce-child/assets/img/orchid.png');
+            position: absolute;
+            left: -48vw;
+            top: 2vw;
+            width: 173px;
+            height:  169px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            animation: rotation 5s linear infinite;
+
+            @media all and (max-width: 365px) {
+                left: -40vw;
+                width: 100px;
+                height: 100px;
+            }  
+        }
+    
+        &::after {
+            content: "";
+            background-image: url('/wp-content/themes/foce/assets/images/Sunflower.png');
+            position: absolute;
+            right: -30vw;
+            top: 3vw;
+            width: 216px;
+            height:  216px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            animation: rotation 5s linear infinite;
+
+            @media all and (max-width: 365px) {
+                right: -45vw;
+                top: 20vw;
+                width: 150px;
+                height: 150px;
+            }  
+        } 
+    }
+
+    li:nth-child(2) {
+        position: relative;
+
+        &::before {
+        content: "";
+        background-image: url('/wp-content/themes/foce-child/assets/img/blue-cat.png');
+        position: absolute;
+        left: -20vw;
+        top: -4vw;
+        width: 109px;
+        height:  98px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        animation: float 2s ease-in-out infinite;
+
+        @media all and (max-width: 700px) {
+            width: 80px;
+            top: 15vw;
+        }
+        }
+    }
+
+    li:nth-child(3) {
+        position: relative;
+
+        &::after {
+        content: "";
+        background-image: url('/wp-content/themes/foce/assets/images/random_flower.png');
+        position: absolute;
+        right: -37vw;
+        top: 1vw;
+        width: 75px;
+        height:  75px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        animation: rotation 5s linear infinite;
+        }
+    }
+    
+    li:nth-child(4) {
+        position: relative;
+
+        &::before {
+            content: "";
+            background-image: url('/wp-content/themes/foce/assets/images/flower.png');
+            position: absolute;
+            left: -30vw;
+            top: -3vw;
+            width: 106px;
+            height:  96px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            animation: rotation 5s linear infinite;
+
+                @media all and (max-width: 365px) {
+                    width: 80px;
+                    top: 10vw;
+                }
+            }
+
+        &::after {
+        content: "";
+        background-image: url('/wp-content/themes/foce-child/assets/img/grey-cat.png');
+        position: absolute;
+        right: -25vw;
+        top: -3vw;
+        width: 154px;
+        height:  147px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        animation: float 2s ease-in-out infinite;
+
+            @media all and (max-width: 700px) {
+                width: 80px;
+                right: -35vw;
+            }
+        }
+    }
+
+    li.studio {
+        margin-bottom: 35px;
+
+        &::before {
+            content: "";
+            background-image: url('/wp-content/themes/foce-child/assets/img/orange-cat.png');
+            position: absolute;
+            left: -35vw;
+            bottom: 3vw;
+            width: 106px;
+            height:  96px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            animation: float 2s ease-in-out infinite;
+
+                @media all and (max-width: 365px) {
+                    left: -15vw;
+                    bottom: 15vw;
+                    width: 80px;
+                }
+            }
+
+        &::after {
+            content: "";
+            background-image: url('/wp-content/themes/foce/assets/images/Hibiscus.png');
+            filter: blur(2px);
+            position: absolute;
+            left: 32vw;
+            top: -10vw;
+            width: 626px;
+            height:  626px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            animation: rotation 10s linear infinite;
+
+            @media all and (max-width: 365px) {
+                left: 50vw;
+                top: 30vw;
+                width: 150px;
+                height: 150px;
+            }  
+        }
+    }
+}
+
+// BANNER SECTION
+.banner {
+    position: relative;
+    width: 100%;
+    min-height: 40vw; // Hauteur dynamique en fonction de la largeur de la fenêtre (56.25% de la largeur pour un ratio 16:9)
+    height: auto;
+    overflow: hidden;
+    background-image: none !important;
+
+    @media all and (max-width: 700px) {
+        height: 400px;
+        min-height: 400px;
+    }
+
+
+    &__container {
+        position: relative;
+        width: 100%;
+        // top: 0;
+        // left: 0;
+        // height: 100%;
+        padding-bottom: 56.25%; // Ratio 16:9 (9/16 = 0.5625 -> 56.25%)
+        height: 0; // L'élément obtient sa hauteur via le padding
+        z-index: 1;
+        animation: videoSlideDown 3s ease-out forwards;
+
+        @media all and (max-width: 700px) {
+            background-image: url('/wp-content/themes/foce/assets/images/banner.png');
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            margin: 0;
+        }
+
+        @media all and (max-width: 365px) {
+            background-position: left;
+        }
+    }
+
+    &__video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transform: translateY(-100%); // Position initialization avec l'unité %
+        animation: videoSlideDown 1s ease-out forwards; // Animation pour faire entrer la vidéo
+
+        @media all and (max-width: 700px) {
+            display: none;
+        }
+    }
+
+    &__logo-wrapper {
+        position: absolute;
+        bottom: 20px; // Positionner initialement le logo en bas de la section
+        left: 50%;
+        transform: translateX(-50%);
+        // width: 48% !important;
+        z-index: 2;
+        animation: logoMoveUp 3s ease-out forwards; 
+
+        @media (min-width: 320px) and (max-width: 700px) {
+                width: 90%;
+        }
+
+        .banner__logo {
+            width: 100%;
+            max-width: 100%;
+            height: auto; 
+            display: block;  // Évite l'espace blanc autour si le logo est une image
+            margin: auto;
+            animation: float 4s ease-in-out infinite;
+
+            @media all and (max-width: 700px) {
+                max-width: 336px;
+            }
+          }
+    }
+}
+
+
+// FADE IN SECTIONS ANIMATION
+section.banner, 
+section.story,
+section.studio {
+    opacity: 0;
+    &.is-visible {
+        animation: fadeIn 5s ease-in-out forwards;
+    }
+}
+// TITLES
+h2, h3 {
+    @media all and (max-width: 700px) {
+        font-size: 2rem;
+    }
+}
+
+#characters h3 {
+    @media all and (max-width: 365px) {
+        line-height: 1.6rem;
+        background-size: cover;
+        margin: auto;
+    }
+}
+
+// MAIN SECTION TITLES (h2)
+// Initial style for the background title
+.slide-up-title {
+    display: inline-block;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+// Fade animation for the background
+.animate-background {
+    opacity: 1;
+}
+
+// Initial style for every word
+.fade-word {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(200px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+//Animation for every word
+.animate-word {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+//FLOWERS ROTATION ANIMATION
+.story__article, .title-container h2  {
+
+    &::after {
+        animation: rotation 5s linear infinite;
+    }
+}
+
+#studio {
+    overflow: hidden;
+
+    > h2 {
+        &::before {
+            animation: rotation 20s linear infinite;
+        }
+
+        &::after {
+            animation: rotation 10s linear infinite;
+        }
+    }
+}
+
+.site-footer {
+
+    @media (max-width: 700px) {
+        justify-content: flex-start;
+        padding-top: 8em;
+    }
+
+    &::before, &::after {
+        display: none;
+    }
+    & ul::after {
+        animation: rotation 30s linear infinite;
+    }
+    & ul {
+        margin-top: 126px;
+    }
+}
+
+// HISTORY SECTION
+@media all and (max-width: 700px) {
+    .story__article {
+        padding-bottom: 0;
+
+        p {
+            margin-bottom: 0;
+        }
+    }
+}
+
+//CHARACTHERS SECTION
+section#story {
+    overflow: hidden;
+}
+
+.story #characters {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 6em 0 6em 0;
+    padding-left: 5em;
+
+    @media all and (max-width: 365px) {
+        padding-left: 0;
+    }
+}
+
+//LOCATION ("Lieu") SECTION
+.story #place {
+    position: relative;
+    display: flex;
+    background-image: url(/wp-content/themes/foce-child/assets/img/Studio_Koukaki-image_place.png);
+    width: 100%;
+    min-height: 699px;
+    background-size: cover;
+
+    .cloud {
+        position: absolute;
+        transition: transform 0.1s ease-out;
+    
+        &.big-cloud {
+            height: 100px;
+            width: 300px;
+            top: 10%;
+            right: 4%;
+            background-image: url(/wp-content/themes/foce-child/assets/img/big_cloud.png);
+            background-size: contain;
+            background-repeat: no-repeat;
+            filter: blur(10px);
+        }
+    
+        &.little-cloud {
+            height: 100px;
+            width: 150px;
+            top:40%;
+            right: 35%;
+            background-image: url(/wp-content/themes/foce-child/assets/img/little_cloud.png);
+            background-size: contain;
+            background-repeat: no-repeat;
+            filter: blur(12px);
+        }
+    }
+}
+
+// OSCAR NOMINATION CONTAINER - STUDIO SECTION
+.nomination {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        padding-top: 252px;
+        overflow: hidden;
+
+        &::before {
+            content: "";
+            background-image: url('/wp-content/themes/foce/assets/images/Sunflower.png');
+            position: absolute;
+            left: 4em;
+            top: 8em;
+            width: 216px;
+            height: 216px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            animation: rotation 10s linear infinite;
+
+            @media (max-width: 1192px) {
+                top: 3em;
+            }
+
+            @media (max-width: 700px) {
+                left: 0;
+                top: 5em;
+                width: 170px;
+                height: 170px;
+            }
+        }
+        &::after {
+            content: "";
+            background-image: url('/wp-content/themes/foce-child/assets/img/orchid.png');
+            position: absolute;
+            right: -5em;
+            top: 0em;
+            width: 173px;
+            height:  169px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            animation: rotation 15s linear infinite;
+           
+            @media (max-width: 700px) {
+                right: -5em;
+                width: 143px;
+                height: 139px;
+            }
+        }
+    
+    &__text {
+        position: relative ;
+        width: 643px;
+        font-family: Quicksand, sans-serif;
+        font-size: 42px;
+        font-weight: 700;
+        line-height: 52.5px;
+        letter-spacing: -1px;
+        color: #FFF5E9;
+        text-shadow: 0 4px 4px rgba(0,0,0,0.25);
+        margin: 0;
+
+        @media (max-width: 920px) {
+            margin: 0 40px 0 40px;
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 45px;
+            left: 0;
+            width: 100%;
+            height: 60%;
+            background-color: #FF5C00;
+            filter: blur(20px);
+            z-index: -1;
+            border-radius: 100px 50px 200px 150px;
+            transform: scaleX(1.05);
+            transform-origin: right;
+
+            @media (max-width: 920px) {
+                height: 70%;
+                border-radius: 100px 50px 450px 50px;
+            }
+
+            @media (max-width: 700px) {
+                height: 77%;
+                border-radius: 50px 50px 150px 50px;
+            }
+
+            @media (max-width: 365px) {
+                .nomination__text::before {
+                    height: 87%;
+                    border-radius: 20px 50px 150px 30px;
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+
+

@@ -1,0 +1,63 @@
+@keyframes float {
+        0% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-10px);  // Slight upward movement
+        }
+        100% {
+            transform: translateY(0);
+        }
+    }
+   
+// Video banner animation    
+@keyframes videoSlideDown {
+  0% {
+      transform: translateY(-100%); // Initial position of the video
+  }
+  100% {
+      transform: translateY(0); // Final position of the video
+  }
+}
+
+// Banner logo
+@keyframes logoMoveUp {
+  0% {
+      transform: translateX(-50%) translateY(0); // Logo starts at the bottom
+  }
+  100% {
+      transform: translateX(-50%) translateY(-45%); // Logo moves toward the center
+  }
+}
+
+// Burger Menu
+@keyframes linksMoveUp {
+    0% {
+        opacity: 0;
+        transform: translateY(100%); // Positioned off-screen
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);  // Final position
+    }
+}
+
+// Flowers rotation animation
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+// Fade in sections animation
+@keyframes fadeIn {
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
+}
