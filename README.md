@@ -1,4 +1,4 @@
-<p align="center">
+<p align="center" style="height: 80px; background-color: #f07a43;">
   <img src="assets/img/logo-koukaki.png" alt="Koukaki's logo" height="80px">
 </p>
 
@@ -18,6 +18,9 @@ The studio aims to revitalize its website by enhancing the user experience with 
     - *Parallax hero section with background video*
     - *Titles and images animations*
     - *Added a new informational section to the template with predefined content*
+    - *Fade-in animations combined with slide-up, slide-left, and slide-right transitions triggered on scroll for sections and articles*
+
+
     
 
 ## 🔹 Projet
