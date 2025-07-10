@@ -6,8 +6,10 @@ const swiper = new Swiper('.swiper', {
       centeredSlides: false,
       slidesPerView: 3,
       spaceBetween: 0,
+      speed: 2000
+      ,
       autoplay: {
-      delay: 2000,  // Waiting time between each slide (in milliseconds)
+      delay: 3000,  // Waiting time between each slide (in milliseconds)
       disableOnInteraction: false, // Continues sliding even after an interaction
       reverseDirection: true, // Slides from the right
       },
