@@ -475,15 +475,67 @@ ul.menu li.studio::after {
   }
 }
 
-section.banner,
-section.story,
-section.studio {
+section.banner {
   opacity: 0;
 }
-section.banner.is-visible,
-section.story.is-visible,
-section.studio.is-visible {
+section.banner.is-visible {
   animation: fadeIn 5s ease-in-out forwards;
+}
+
+#story {
+  opacity: 0;
+  transform: translateY(20vh);
+  overflow: hidden;
+}
+
+#story.active {
+  opacity: 1;
+  transform: translateY(0vh);
+  transition: all 2s ease-in-out;
+}
+
+#characters {
+  opacity: 0;
+  transform: translateX(20vw);
+}
+
+#characters.active {
+  opacity: 1;
+  transform: translateX(0vw);
+  transition: all 2s ease-in-out;
+}
+
+#place {
+  opacity: 0;
+  transform: translateX(-20vh);
+}
+
+#place.active {
+  opacity: 1;
+  transform: translateX(0vw);
+  transition: all 2s ease-in-out;
+}
+
+#studio {
+  opacity: 0;
+  transform: TranslateY(20vh);
+}
+
+#studio.active {
+  opacity: 1;
+  transform: TranslateY(0vh);
+  transition: all 2s ease-in-out;
+}
+
+#nomination {
+  opacity: 0;
+  transform: TranslateY(-20vh);
+}
+
+#nomination.active {
+  opacity: 1;
+  transform: TranslateY(0vh);
+  transition: all 2s ease-in-out;
 }
 
 @media all and (max-width: 700px) {
@@ -592,8 +644,8 @@ section#story {
 .story #place .cloud.big-cloud {
   height: 100px;
   width: 300px;
-  top: 10%;
-  right: 4%;
+  top: 15%;
+  left: 100%;
   background-image: url(/wp-content/themes/foce-child/assets/img/big_cloud.png);
   background-size: contain;
   background-repeat: no-repeat;
@@ -602,8 +654,8 @@ section#story {
 .story #place .cloud.little-cloud {
   height: 100px;
   width: 150px;
-  top: 40%;
-  right: 35%;
+  top: 30%;
+  right: 5%;
   background-image: url(/wp-content/themes/foce-child/assets/img/little_cloud.png);
   background-size: contain;
   background-repeat: no-repeat;

@@ -63,6 +63,28 @@ document.addEventListener("DOMContentLoaded", function(){
         }, delay);
         delay += 500; // Increases the delay for the next section 
     })
+
+});
+
+document.addEventListener("DOMContentLoaded", function(){
+
+    // effet fade in sur les sections avec la class fade-in
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            return;
+            }
+            else {
+                entry.target.classList.remove('active');
+                return;
+            }
+            //entry.target.classList.remove('fade-in');
+        });
+    });
+    const section = document.querySelectorAll('.entry');
+    section.forEach((element) => observer.observe(element));
+
 });
 
 // MAIN TITLES ANIMATION (h2)
