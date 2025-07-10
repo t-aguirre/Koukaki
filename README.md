@@ -1,6 +1,10 @@
-<p align="center" style="height: 80px; background-color: #f07a43;">
-  <img src="assets/img/logo-koukaki.png" alt="Koukaki's logo" height="80px">
-</p>
+<table align="center" style="background-color: #f07a43;">
+  <tr>
+    <td>
+      <img src="assets/img/logo-koukaki.png" alt="Koukaki's logo" height="80">
+    </td>
+  </tr>
+</table>
 
 # KOUKAKI
 
@@ -13,12 +17,12 @@ The studio aims to revitalize its website by enhancing the user experience with 
 
 ## 🔹 Main Features
 
-    - *Burger menu with animated transitions*
-    - *Image carousel using Swiper JS*
-    - *Parallax hero section with background video*
-    - *Titles and images animations*
-    - *Added a new informational section to the template with predefined content*
-    - *Fade-in animations combined with slide-up, slide-left, and slide-right transitions triggered on scroll for sections and articles*
+  - *Burger menu with animated transitions*
+  - *Image carousel using Swiper JS*
+  - *Parallax hero section with background video*
+  - *Titles and images animations*
+  - *Added a new informational section to the template with predefined content*
+  - *Fade-in animations combined with slide-up, slide-left, and slide-right transitions triggered on scroll for sections and articles*
 
 
     
