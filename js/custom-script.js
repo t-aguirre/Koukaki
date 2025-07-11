@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
 document.addEventListener("DOMContentLoaded", function(){
 
-    // effet fade in sur les sections avec la class fade-in
+    // Applying active class on scroll to animate sections and articles with a fade-in and directional transitions effect
     const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -79,7 +79,6 @@ document.addEventListener("DOMContentLoaded", function(){
                 entry.target.classList.remove('active');
                 return;
             }
-            //entry.target.classList.remove('fade-in');
         });
     });
     const section = document.querySelectorAll('.entry');

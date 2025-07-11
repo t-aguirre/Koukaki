@@ -195,7 +195,7 @@ ul.menu {
     
         &::after {
             content: "";
-            background-image: url('/wp-content/themes/foce/assets/images/Sunflower.png');
+            background-image: url('/wp-content/themes/foce-child/assets/img/Sunflower.png');
             position: absolute;
             right: -30vw;
             top: 3vw;
@@ -241,7 +241,7 @@ ul.menu {
 
         &::after {
         content: "";
-        background-image: url('/wp-content/themes/foce/assets/images/random_flower.png');
+        background-image: url('/wp-content/themes/foce-child/assets/img/random_flower.png');
         position: absolute;
         right: -37vw;
         top: 1vw;
@@ -258,7 +258,7 @@ ul.menu {
 
         &::before {
             content: "";
-            background-image: url('/wp-content/themes/foce/assets/images/flower.png');
+            background-image: url('/wp-content/themes/foce-child/assets/img/flower.png');
             position: absolute;
             left: -30vw;
             top: -3vw;
@@ -317,7 +317,7 @@ ul.menu {
 
         &::after {
             content: "";
-            background-image: url('/wp-content/themes/foce/assets/images/Hibiscus.png');
+            background-image: url('/wp-content/themes/foce-child/assets/img/Hibiscus.png');
             filter: blur(2px);
             position: absolute;
             left: 32vw;
@@ -365,7 +365,7 @@ ul.menu {
         animation: videoSlideDown 3s ease-out forwards;
 
         @media all and (max-width: 700px) {
-            background-image: url('/wp-content/themes/foce/assets/images/banner.png');
+            background-image: url('/wp-content/themes/foce-child/assets/images/banner.png');
             background-size: cover;
             background-position: center;
             height: 400px;
@@ -646,7 +646,7 @@ section#story {
 
         &::before {
             content: "";
-            background-image: url('/wp-content/themes/foce/assets/images/Sunflower.png');
+            background-image: url('/wp-content/themes/foce-child/assets/img/Sunflower.png');
             position: absolute;
             left: 4em;
             top: 8em;

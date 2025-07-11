@@ -8,12 +8,12 @@ get_header();
     <section class="banner entry">
         <div class="banner__container">
             <video class="banner__video" autoplay muted loop playsinline
-                poster="<?php echo get_template_directory_uri() . '/assets/images/banner.png'; ?>">
+                poster="<?php echo get_stylesheet_directory_uri() . '/assets/img/banner.png'; ?>">
                 <source src="<?php echo get_stylesheet_directory_uri() . '/assets/Studio+Koukaki-vidéo+header+sans+son.mp4'; ?>" type=" video/mp4">
             </video>
         </div>
         <div class="banner__logo-wrapper">
-            <img src="<?php echo get_template_directory_uri() . '/assets/images/logo.png'; ?>" class="banner__logo" alt="logo Fleurs d'oranger & chats errants">
+            <img src="<?php echo get_stylesheet_directory_uri() . '/assets/img/logo.png'; ?>" class="banner__logo" alt="logo Fleurs d'oranger & chats errants">
         </div>
     </section>
     <section id="story" class="story entry">
