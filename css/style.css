@@ -411,6 +411,11 @@ ul.menu li.studio::after {
     min-height: 400px;
   }
 }
+@media all and (min-width: 2000px) {
+  .banner {
+    min-height: 0;
+  }
+}
 .banner__container {
   position: relative;
   width: 100%;
@@ -421,7 +426,7 @@ ul.menu li.studio::after {
 }
 @media all and (max-width: 700px) {
   .banner__container {
-    background-image: url("/wp-content/themes/foce-child/assets/images/banner.png");
+    background-image: url("/wp-content/themes/foce-child/assets/img/banner.png");
     background-size: cover;
     background-position: center;
     height: 400px;
@@ -452,7 +457,6 @@ ul.menu li.studio::after {
   position: absolute;
   bottom: 20px;
   left: 50%;
-  transform: translateX(-50%);
   z-index: 2;
   animation: logoMoveUp 3s ease-out forwards;
 }
@@ -552,24 +556,17 @@ section.banner.is-visible {
   }
 }
 
-.slide-up-title {
+section h2 {
+  text-align: center;
+  display: block;
+}
+section h2 span.fade-word {
   display: inline-block;
   opacity: 0;
-  transition: opacity 0.5s ease-in-out;
-}
-
-.animate-background {
-  opacity: 1;
-}
-
-.fade-word {
-  display: inline-block;
-  opacity: 0;
-  transform: translateY(200px);
+  transform: translateY(100px);
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
-
-.animate-word {
+section h2.active span.fade-word {
   opacity: 1;
   transform: translateY(0);
 }

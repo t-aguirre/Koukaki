@@ -33,7 +33,7 @@ menuLinks.forEach(link => {
         document.querySelector('.main-navigation').classList.remove('toggled');
 
         // Gets the anchor of the link
-        const targetId = link.getAttribute('href').substring(1); // Enlève le '#' du href
+        const targetId = link.getAttribute('href').substring(1); // Remove the '#' from the href
 
         //  Targets the specific section
         const targetSection = document.getElementById(targetId);
@@ -53,9 +53,9 @@ menuLinks.forEach(link => {
 });
 
 //LAYOUT:
-// Loading sections with a fade in animation adding is-visible class
+// Loading banner section with a fade in animation adding is-visible class
 document.addEventListener("DOMContentLoaded", function(){
-    const sections = document.querySelectorAll('section.banner, section.story, section.studio, section.nomination');
+    const sections = document.querySelectorAll('section.banner');
     let delay = 0;
     sections.forEach((section, index) => {
         setTimeout(() => {
@@ -87,45 +87,42 @@ document.addEventListener("DOMContentLoaded", function(){
 });
 
 // MAIN TITLES ANIMATION (h2)
-const h2Elements = document.querySelectorAll('section h2');
+document.addEventListener("DOMContentLoaded", function () {
+    const h2Elements = document.querySelectorAll('section h2');
 
-h2Elements.forEach(h2 => {
-    const span = document.createElement('span');
-    span.textContent = h2.textContent; // Place the text inside a span for animations
-    h2.textContent = ''; // Clear the text content of the h2 element to prepare for the animated span
-    h2.appendChild(span);
-    span.classList.add('slide-up-title');
+    // Wrap every word inside the h2 with a span
+    h2Elements.forEach(h2 => {
+        const words = h2.textContent.split(' ');
+        h2.textContent = ''; // Empty the original content
+        words.forEach((word, index) => {
+            const span = document.createElement('span');
+            span.textContent = word + ' ';
+            span.classList.add('fade-word');
+            span.style.transitionDelay = `${index * 200}ms`;
+            h2.appendChild(span);
+        });
+    });
 
-    // Observe each h2 to trigger the animation on scroll
-    function animateOnScroll() {
-        if (isInViewport(h2) && !span.classList.contains('animate-background')) {
-            span.classList.add('animate-background');
-            const words = span.textContent.split(' ');
-            span.textContent = ''; // Clear the span to add each word with effect
-            words.forEach((word, index) => {
-                const wordSpan = document.createElement('span');
-                wordSpan.textContent = word + ' ';
-                wordSpan.classList.add('fade-word');
+    // IntersectionObserver configuration
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            } else {
+                entry.target.classList.remove('active'); // Enables retriggering of the animation
+            }
+        });
+    }, {
+        threshold: 0.5 // Trigger when element is more than 50% visible
+    });
 
-                // Add padding-right to the first word
-                if (index === 0) {
-                    wordSpan.style.paddingRight = '10px';
-                }
-
-                span.appendChild(wordSpan);
-                setTimeout(() => wordSpan.classList.add('animate-word'), index * 200); // 200ms delay
-            });
-        }
-    }
-    
-    window.addEventListener('scroll', animateOnScroll); // Attach the animation to the scroll event
+    h2Elements.forEach(h2 => observer.observe(h2));
 });
 
-// Function to check if an element is visible in the viewport
-function isInViewport(element) {
-    const rect = element.getBoundingClientRect();
-    return rect.top <= window.innerHeight * 0.75;
-}
+
+
+
+
 
 //LOCATION ("Lieu") SECTION
 // Parallax effect with two elements moving horizontally as the user scrolls the page

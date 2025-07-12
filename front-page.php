@@ -18,7 +18,7 @@ get_header();
     </section>
     <section id="story" class="story entry">
         <div class="title-container">
-            <h2>L'histoire</h2>
+            <h2>L' histoire</h2>
         </div>
         <article class="story__article">
             <p><?php echo get_theme_mod('story'); ?></p>

@@ -3,7 +3,6 @@
 
 // LAYOUT
 
-
 //HEADER: Main nav
 ul.menu.nav-menu {
     position: absolute;
@@ -20,8 +19,8 @@ ul.menu.nav-menu {
         color: black;
         max-width: max-content;
         text-align: center;
-        opacity: 0;  // Initialement invisible
-        transform: translateY(100%);  // Hors de l'écran pour l'animation
+        opacity: 0;  // Initially hidden
+        transform: translateY(100%);  // Off-screen for animation
 
         & .logo {
             width: 154px;
@@ -125,7 +124,7 @@ ul.menu.nav-menu {
 
             @media (max-width: 700px) {
                 position: initial;
-                display: block; // Affiche le bouton toggle sur les petits écrans
+                display: block; // Display the toggle button on small screens
                 transform: translate(-50%, -50%); 
             }
     
@@ -342,7 +341,7 @@ ul.menu {
 .banner {
     position: relative;
     width: 100%;
-    min-height: 40vw; // Hauteur dynamique en fonction de la largeur de la fenêtre (56.25% de la largeur pour un ratio 16:9)
+    min-height: 40vw; // Dynamic height based on window width (56.25% of the width for a 16:9 ratio)
     height: auto;
     overflow: hidden;
     background-image: none !important;
@@ -352,20 +351,20 @@ ul.menu {
         min-height: 400px;
     }
 
+    @media all and (min-width: 2000px) {
+        min-height: 0; // Remove min-height on very large screens
+    }
 
     &__container {
         position: relative;
         width: 100%;
-        // top: 0;
-        // left: 0;
-        // height: 100%;
-        padding-bottom: 56.25%; // Ratio 16:9 (9/16 = 0.5625 -> 56.25%)
-        height: 0; // L'élément obtient sa hauteur via le padding
+        padding-bottom: 56.25%; // Aspect Ratio 16:9 (9/16 = 0.5625 -> 56.25%)
+        height: 0; // The element gets its height through padding
         z-index: 1;
         animation: videoSlideDown 3s ease-out forwards;
 
         @media all and (max-width: 700px) {
-            background-image: url('/wp-content/themes/foce-child/assets/images/banner.png');
+            background-image: url('/wp-content/themes/foce-child/assets/img/banner.png');
             background-size: cover;
             background-position: center;
             height: 400px;
@@ -384,8 +383,8 @@ ul.menu {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        transform: translateY(-100%); // Position initialization avec l'unité %
-        animation: videoSlideDown 1s ease-out forwards; // Animation pour faire entrer la vidéo
+        transform: translateY(-100%); // Initial position set using percentage units
+        animation: videoSlideDown 1s ease-out forwards; // Animation to slide in the video
 
         @media all and (max-width: 700px) {
             display: none;
@@ -394,10 +393,8 @@ ul.menu {
 
     &__logo-wrapper {
         position: absolute;
-        bottom: 20px; // Positionner initialement le logo en bas de la section
+        bottom: 20px; // Initially position the logo at the bottom of the section
         left: 50%;
-        transform: translateX(-50%);
-        // width: 48% !important;
         z-index: 2;
         animation: logoMoveUp 3s ease-out forwards; 
 
@@ -409,7 +406,7 @@ ul.menu {
             width: 100%;
             max-width: 100%;
             height: auto; 
-            display: block;  // Évite l'espace blanc autour si le logo est une image
+            display: block;  // Prevents white space around the logo if it's an image
             margin: auto;
             animation: float 4s ease-in-out infinite;
 
@@ -503,31 +500,24 @@ h2, h3 {
 
 
 // MAIN SECTION TITLES (h2)
-// Initial style for the background title
-.slide-up-title {
-    display: inline-block;
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
+section h2 {
+    text-align: center;
+    display: block;
+
+    span.fade-word {
+        display: inline-block;
+        opacity: 0;
+        transform: translateY(100px);
+        transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    &.active span.fade-word {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-// Fade animation for the background
-.animate-background {
-    opacity: 1;
-}
 
-// Initial style for every word
-.fade-word {
-    display: inline-block;
-    opacity: 0;
-    transform: translateY(200px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
-//Animation for every word
-.animate-word {
-    opacity: 1;
-    transform: translateY(0);
-}
 
 //FLOWERS ROTATION ANIMATION
 .story__article, .title-container h2  {
