@@ -39,7 +39,7 @@
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-10px);
+    transform: translateY(-50px);
   }
   100% {
     transform: translateY(0);
@@ -447,6 +447,7 @@ ul.menu li.studio::after {
   object-fit: cover;
   transform: translateY(-100%);
   animation: videoSlideDown 1s ease-out forwards;
+  transition: transform 0.6s ease-in-out;
 }
 @media all and (max-width: 700px) {
   .banner__video {
@@ -457,8 +458,10 @@ ul.menu li.studio::after {
   position: absolute;
   bottom: 20px;
   left: 50%;
+  transform: translateX(-50%);
   z-index: 2;
   animation: logoMoveUp 3s ease-out forwards;
+  transition: transform 0.3s ease;
 }
 @media (min-width: 320px) and (max-width: 700px) {
   .banner__logo-wrapper {
@@ -471,6 +474,8 @@ ul.menu li.studio::after {
   height: auto;
   display: block;
   margin: auto;
+}
+.banner__logo-wrapper .banner__logo.floating {
   animation: float 4s ease-in-out infinite;
 }
 @media all and (max-width: 700px) {
@@ -484,6 +489,22 @@ section.banner {
 }
 section.banner.is-visible {
   animation: fadeIn 5s ease-in-out forwards;
+}
+
+section.story {
+  opacity: 0;
+}
+section.story.is-visible {
+  animation: fadeIn 5s ease-in-out forwards;
+}
+
+.banner__logo-parallax {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  width: 100%;
+  transform: translateX(-50%);
+  z-index: 2;
 }
 
 #story {

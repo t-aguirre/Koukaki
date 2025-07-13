@@ -12,10 +12,13 @@ get_header();
                 <source src="<?php echo get_stylesheet_directory_uri() . '/assets/Studio+Koukaki-vidéo+header+sans+son.mp4'; ?>" type=" video/mp4">
             </video>
         </div>
-        <div class="banner__logo-wrapper">
-            <img src="<?php echo get_stylesheet_directory_uri() . '/assets/img/logo.png'; ?>" class="banner__logo" alt="logo Fleurs d'oranger & chats errants">
+        <div class="banner__logo-parallax">
+            <div class="banner__logo-wrapper">
+                <img src="<?php echo get_stylesheet_directory_uri() . '/assets/img/logo.png'; ?>" class="banner__logo" alt="logo Fleurs d'oranger & chats errants">
+            </div>
         </div>
     </section>
+
     <section id="story" class="story entry">
         <div class="title-container">
             <h2>L' histoire</h2>

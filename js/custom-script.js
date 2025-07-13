@@ -53,9 +53,9 @@ menuLinks.forEach(link => {
 });
 
 //LAYOUT:
-// Loading banner section with a fade in animation adding is-visible class
+// Loading banner and story section with a fade in animation adding is-visible class
 document.addEventListener("DOMContentLoaded", function(){
-    const sections = document.querySelectorAll('section.banner');
+    const sections = document.querySelectorAll('section.banner, .story');
     let delay = 0;
     sections.forEach((section, index) => {
         setTimeout(() => {
@@ -66,8 +66,42 @@ document.addEventListener("DOMContentLoaded", function(){
 
 });
 
-document.addEventListener("DOMContentLoaded", function(){
+// Adds the "floating" class to the logo to trigger the floating animation. 
+// Ensures the 'float' animation is added after 'logoMoveUp' finishes, avoiding a transform conflict
 
+window.addEventListener('load', () => {
+  const logo = document.querySelector('.banner__logo');
+  logo.classList.add('floating');
+});
+
+
+
+ // PARALLAX EFFECT OF THE LOGO IN THE BANNER :
+document.addEventListener('scroll', () => {
+    // Get the logo wrapper and the banner elements
+    const parallaxWrapper = document.querySelector('.banner__logo-parallax');
+    const banner = document.querySelector('.banner__container');
+    const bannerHeight = banner.offsetHeight;
+
+    // Function to update the parallax effect based on scroll position
+    function updateParallax() {
+        const scrollY = window.scrollY;
+        // Calculate scroll progress relative to the banner height (from 0 to 1)
+        const scrollProgress = Math.min(scrollY / bannerHeight, 1);
+        // Compute the vertical translation based on scroll progress
+        const translateY = scrollProgress * 300; // Increase 300 for faster motion
+        // Apply transform to move the logo wrapper smoothly
+        parallaxWrapper.style.transform = `translateX(-50%) translateY(${translateY}px)`;
+        // Continue updating on the next animation frame
+        requestAnimationFrame(updateParallax);
+    }
+
+    // Start the parallax update loop
+    requestAnimationFrame(updateParallax);
+});
+
+//SECTIONS ANIMATIONS ON SCROLL
+document.addEventListener("DOMContentLoaded", function(){
     // Applying active class on scroll to animate sections and articles with a fade-in and directional transitions effect
     const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {

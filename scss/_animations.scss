@@ -3,7 +3,7 @@
             transform: translateY(0);
         }
         50% {
-            transform: translateY(-10px);  // Slight upward movement
+            transform: translateY(-50px);  // Upward movement
         }
         100% {
             transform: translateY(0);
@@ -52,7 +52,7 @@
     }
 }
 
-// Fade-in benner section animation
+// Fade-in banner section animation
 @keyframes fadeIn {
   0% {
       opacity: 0;

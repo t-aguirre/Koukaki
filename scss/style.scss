@@ -385,6 +385,7 @@ ul.menu {
         object-fit: cover;
         transform: translateY(-100%); // Initial position set using percentage units
         animation: videoSlideDown 1s ease-out forwards; // Animation to slide in the video
+        transition: transform 0.6s ease-in-out;
 
         @media all and (max-width: 700px) {
             display: none;
@@ -393,10 +394,12 @@ ul.menu {
 
     &__logo-wrapper {
         position: absolute;
-        bottom: 20px; // Initially position the logo at the bottom of the section
+        bottom: 20px;
         left: 50%;
+        transform: translateX(-50%);
         z-index: 2;
         animation: logoMoveUp 3s ease-out forwards; 
+        transition: transform 0.3s ease;
 
         @media (min-width: 320px) and (max-width: 700px) {
                 width: 90%;
@@ -408,7 +411,10 @@ ul.menu {
             height: auto; 
             display: block;  // Prevents white space around the logo if it's an image
             margin: auto;
+
+        &.floating {
             animation: float 4s ease-in-out infinite;
+        }
 
             @media all and (max-width: 700px) {
                 max-width: 336px;
@@ -417,13 +423,30 @@ ul.menu {
     }
 }
 
-
 // FADE IN ANIMATION FOR THE BANNER SECTION
 section.banner{
     opacity: 0;
     &.is-visible {
         animation: fadeIn 5s ease-in-out forwards;
     }
+}
+
+section.story{
+    opacity: 0;
+    &.is-visible {
+        animation: fadeIn 5s ease-in-out forwards;
+    }
+}
+
+// PARALLAX EFFECT BETWEEN THE PARALLAX LOGO CONTAINER AND THE VIDEO CONTAINER IN THE BANNER
+.banner__logo-parallax {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;   
+  width: 100%;
+  transform: translateX(-50%);
+  z-index: 2;
+//   transition: transform 0.15s ease-out;
 }
 
 // ANIMATIONS FOR SECTIONS (story, studio , nomination) + ARTICLES (characters, place) : fade-in and directional transitions
