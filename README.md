@@ -1,10 +1,7 @@
-<table align="center" style="background-color: #f07a43;">
-  <tr>
-    <td>
-      <img src="assets/img/koukaki.png" alt="Koukaki's logo" height="80">
-    </td>
-  </tr>
-</table>
+<<p align="center">
+  <img src="assets/img/koukaki.png" alt="Koukaki's logo" height="80">
+</p>
+
 
 # KOUKAKI
 
