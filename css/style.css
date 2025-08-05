@@ -39,7 +39,7 @@
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-50px);
+    transform: translateY(-10px);
   }
   100% {
     transform: translateY(0);
@@ -488,13 +488,6 @@ section.banner {
   opacity: 0;
 }
 section.banner.is-visible {
-  animation: fadeIn 5s ease-in-out forwards;
-}
-
-section.story {
-  opacity: 0;
-}
-section.story.is-visible {
   animation: fadeIn 5s ease-in-out forwards;
 }
 

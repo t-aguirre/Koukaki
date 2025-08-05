@@ -45,6 +45,5 @@
                     <li><a href="#studio">Studio Koukaki</a></li>
                     <li class="studio">Studio Koukaki</li>
                 </ul>
-
             </nav><!-- #site-navigation -->
         </header><!--#masthead-->

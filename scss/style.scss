@@ -431,13 +431,6 @@ section.banner{
     }
 }
 
-section.story{
-    opacity: 0;
-    &.is-visible {
-        animation: fadeIn 5s ease-in-out forwards;
-    }
-}
-
 // PARALLAX EFFECT BETWEEN THE PARALLAX LOGO CONTAINER AND THE VIDEO CONTAINER IN THE BANNER
 .banner__logo-parallax {
   position: absolute;
@@ -748,11 +741,3 @@ section#story {
         }
     }
 }
-
-
-
-
-
-
-
-

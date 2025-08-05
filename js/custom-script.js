@@ -53,22 +53,18 @@ menuLinks.forEach(link => {
 });
 
 //LAYOUT:
-// Loading banner and story section with a fade in animation adding is-visible class
-document.addEventListener("DOMContentLoaded", function(){
-    const sections = document.querySelectorAll('section.banner, .story');
-    let delay = 0;
-    sections.forEach((section, index) => {
+// Loading banner section with a fade in animation adding is-visible class
+document.addEventListener("DOMContentLoaded", function() {
+    const section = document.querySelector('section.banner');
+    if (section) {
         setTimeout(() => {
             section.classList.add('is-visible');
-        }, delay);
-        delay += 500; // Increases the delay for the next section 
-    })
-
+        }, 500);
+    }
 });
 
 // Adds the "floating" class to the logo to trigger the floating animation. 
 // Ensures the 'float' animation is added after 'logoMoveUp' finishes, avoiding a transform conflict
-
 window.addEventListener('load', () => {
   const logo = document.querySelector('.banner__logo');
   logo.classList.add('floating');
@@ -76,29 +72,40 @@ window.addEventListener('load', () => {
 
 
 
- // PARALLAX EFFECT OF THE LOGO IN THE BANNER :
+// PARALLAX EFFECT OF THE LOGO IN THE BANNER :
+// Select elements once
+const parallaxWrapper = document.querySelector('.banner__logo-parallax');
+const banner = document.querySelector('.banner__container');
+const bannerHeight = banner.offsetHeight;
+
+// Flag variable to track if a requestAnimationFrame is already scheduled
+let ticking = false; // flag accessible globally
+
+
+// Function to update the parallax effect based on current scroll position
+function updateParallax() {
+    // Get the current vertical scroll position of the window
+    const scrollY = window.scrollY;
+    // Calculate how far the user has scrolled relative to banner height, capped at 1
+    const scrollProgress = Math.min(scrollY / bannerHeight, 1);
+    // Calculate the vertical translation based on scroll progress and max offset
+    const translateY = scrollProgress * 270;
+    // Apply CSS transform to move the parallax wrapper element vertically and center it horizontally
+    parallaxWrapper.style.transform = `translateX(-50%) translateY(${translateY}px)`;
+    // Reset the ticking flag to allow scheduling new animation frames on next scroll
+    ticking = false; // reset flag
+}
+// Listen to the scroll event on the document
 document.addEventListener('scroll', () => {
-    // Get the logo wrapper and the banner elements
-    const parallaxWrapper = document.querySelector('.banner__logo-parallax');
-    const banner = document.querySelector('.banner__container');
-    const bannerHeight = banner.offsetHeight;
-
-    // Function to update the parallax effect based on scroll position
-    function updateParallax() {
-        const scrollY = window.scrollY;
-        // Calculate scroll progress relative to the banner height (from 0 to 1)
-        const scrollProgress = Math.min(scrollY / bannerHeight, 1);
-        // Compute the vertical translation based on scroll progress
-        const translateY = scrollProgress * 300; // Increase 300 for faster motion
-        // Apply transform to move the logo wrapper smoothly
-        parallaxWrapper.style.transform = `translateX(-50%) translateY(${translateY}px)`;
-        // Continue updating on the next animation frame
+    // If there is no animation frame already scheduled
+    if (!ticking) {
+        // Request the browser to run updateParallax on the next animation frame
         requestAnimationFrame(updateParallax);
+        // Set the ticking flag to true to prevent multiple scheduled frames
+        ticking = true;
     }
-
-    // Start the parallax update loop
-    requestAnimationFrame(updateParallax);
 });
+
 
 //SECTIONS ANIMATIONS ON SCROLL
 document.addEventListener("DOMContentLoaded", function(){
@@ -152,10 +159,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     h2Elements.forEach(h2 => observer.observe(h2));
 });
-
-
-
-
 
 
 //LOCATION ("Lieu") SECTION
