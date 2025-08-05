@@ -1,4 +1,4 @@
-<<p align="center">
+<p align="center">
   <img src="assets/img/koukaki.png" alt="Koukaki's logo" height="80">
 </p>
 
