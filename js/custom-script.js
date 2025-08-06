@@ -9,11 +9,15 @@ document.querySelector('.menu-toggle').addEventListener('click', function () {
         menu.style.display = 'none';
         this.setAttribute('aria-expanded', 'false'); // Updates the aria attribute
         this.classList.remove('active');
+        nav.classList.remove('toggled');
+        document.body.classList.remove('menu-open'); // Remove overflow:hidden
     } else {
         menu.style.display = 'flex';
         menu.style.flexDirection = 'column';
         this.setAttribute('aria-expanded', 'true'); // Updates the aria attribute
         this.classList.add('active'); // Adds the active class to the burger button
+        nav.classList.add('toggled');
+        document.body.classList.add('menu-open'); // Apply overflow:hidden
     }
 });
 
@@ -31,6 +35,7 @@ menuLinks.forEach(link => {
         menuToggle.setAttribute('aria-expanded', 'false');
         menuToggle.classList.remove('active');
         document.querySelector('.main-navigation').classList.remove('toggled');
+        document.body.classList.remove('menu-open');
 
         // Gets the anchor of the link
         const targetId = link.getAttribute('href').substring(1); // Remove the '#' from the href
