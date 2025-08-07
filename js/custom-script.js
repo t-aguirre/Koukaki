@@ -1,54 +1,52 @@
 // MAIN NAVIGATION - MEMU BURGER
-// Function to toggle the burger menu
+// On burger menu button click
 document.querySelector('.menu-toggle').addEventListener('click', function () {
     const nav = document.querySelector('.main-navigation');
     const menu = document.querySelector('.menu');
     
-    // Checks if the menu is open or closed
+    // Check if the menu is already open (the 'toggled' class is managed by the parent theme)
     if (nav.classList.contains('toggled')) {
+        // If open, hide the menu
         menu.style.display = 'none';
-        this.setAttribute('aria-expanded', 'false'); // Updates the aria attribute
-        this.classList.remove('active');
-        nav.classList.remove('toggled');
-        document.body.classList.remove('menu-open'); // Remove overflow:hidden
+        this.setAttribute('aria-expanded', 'false'); // Update aria attribute for accessibility
+        this.classList.remove('active'); // Remove 'active' class from the button
+        document.body.style.overflow = ''; // Restore body scroll
     } else {
+        // If closed, show the menu
         menu.style.display = 'flex';
-        menu.style.flexDirection = 'column';
-        this.setAttribute('aria-expanded', 'true'); // Updates the aria attribute
-        this.classList.add('active'); // Adds the active class to the burger button
-        nav.classList.add('toggled');
-        document.body.classList.add('menu-open'); // Apply overflow:hidden
+        menu.style.flexDirection = 'column'; // Display links vertically
+        this.setAttribute('aria-expanded', 'true'); // Update aria attribute for accessibility
+        this.classList.add('active'); // Add 'active' class to the button
+        document.body.style.overflow = 'hidden'; // Disable body scroll when menu is open
     }
 });
 
-// Closes the menu when a link in the <ul> is clicked
+// When clicking on a link inside the menu
 const menuLinks = document.querySelectorAll('.menu a');
 menuLinks.forEach(link => {
     link.addEventListener('click', function(event) {
-        event.preventDefault(); // Prevents the default behavior
+        event.preventDefault(); // Prevent default link behavior
 
         const menu = document.querySelector('.menu');
         const menuToggle = document.querySelector('.menu-toggle');
 
-        // Hiding the menu
+        // Hide the menu
         menu.style.display = 'none';
         menuToggle.setAttribute('aria-expanded', 'false');
         menuToggle.classList.remove('active');
-        document.querySelector('.main-navigation').classList.remove('toggled');
-        document.body.classList.remove('menu-open');
+        document.querySelector('.main-navigation').classList.remove('toggled'); // 'toggled' class managed by parent theme
+        document.body.style.overflow = ''; // Restore body scroll
 
-        // Gets the anchor of the link
-        const targetId = link.getAttribute('href').substring(1); // Remove the '#' from the href
-
-        //  Targets the specific section
+        // Get the target section ID from the href attribute (without the '#')
+        const targetId = link.getAttribute('href').substring(1);
         const targetSection = document.getElementById(targetId);
 
         if (targetSection) {
-           // Calculates the scroll position with an offset for the header
+            // Calculate scroll position with header offset
             const headerHeight = document.querySelector('.site-header').getBoundingClientRect().height;
             const offsetTop = targetSection.getBoundingClientRect().top + window.scrollY - headerHeight;
 
-             // Scrolls to the section with smooth behavior
+            // Smooth scroll to the target section
             window.scrollTo({
                 top: offsetTop,
                 behavior: 'smooth',
@@ -56,6 +54,7 @@ menuLinks.forEach(link => {
         }
     });
 });
+
 
 //LAYOUT:
 // Loading banner section with a fade in animation adding is-visible class

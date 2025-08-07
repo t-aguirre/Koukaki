@@ -87,10 +87,6 @@
     opacity: 1;
   }
 }
-body.menu-open {
-  overflow: hidden;
-}
-
 ul.menu.nav-menu {
   position: absolute;
   top: 100%;
