@@ -2,6 +2,9 @@
 @import 'animations'; 
 
 // LAYOUT
+html {
+    scrollbar-gutter: stable; // Maintain scrollbar space to prevent the menu button from shifting on click 
+}
 
 //HEADER: Main nav
 ul.menu.nav-menu {
@@ -91,14 +94,15 @@ ul.menu.nav-menu {
 
         @media (max-width: 700px) {
         flex-direction: column;
-        padding: 1rem 0 1rem 0;
+        height: 95px;
         }
 
 
     .site-title {
         text-align: center;
         @media (max-width: 700px) {
-            margin-bottom: 1.5rem;
+            padding-top: 1rem;
+            margin-bottom: 0;
         }
 
         @media (min-width: 320px) and (max-width: 365px) {
@@ -114,8 +118,9 @@ ul.menu.nav-menu {
         display: flex;
         flex-direction: column;
         justify-content: space-around;
-        width: 40px;
-        height: 18px;
+        align-items: center;
+        width: 70px;
+        height: 40px;
         background: none;
         border: none;
         cursor: pointer;
@@ -125,7 +130,7 @@ ul.menu.nav-menu {
             @media (max-width: 700px) {
                 position: initial;
                 display: block; // Display the toggle button on small screens
-                transform: translate(-50%, -50%); 
+                margin-top: 1.5rem;
             }
     
         .line {
@@ -133,7 +138,6 @@ ul.menu.nav-menu {
             height: 1px;
             position: absolute;
             top: 50%;
-            left: 50%;
             border-radius: 4px;
             background-color: black; 
             transition: all 0.3s ease-in-out; 
