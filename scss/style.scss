@@ -6,7 +6,19 @@ html {
     scrollbar-gutter: stable; // Maintain scrollbar space to prevent the menu button from shifting on click 
 }
 
-//HEADER: Main nav
+//HEADER:
+// Hide the menu on page load to avoid flash rendering of the burger menu's <ul> before JS interaction
+.js .menu {
+  display: none;
+}
+
+.site-header {
+	position: sticky;
+	top:0;
+	z-index: 9999;
+}
+
+//Main nav
 ul.menu.nav-menu {
     position: absolute;
     top: 100%;
