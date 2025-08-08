@@ -118,6 +118,11 @@ ul.menu.nav-menu li.studio {
   padding-top: 5em;
   margin-bottom: 0;
 }
+@media all and (max-width: 700px) {
+  ul.menu.nav-menu li.studio {
+    font-size: 15px;
+  }
+}
 ul.menu.nav-menu li a {
   cursor: pointer;
   transition: all 0.3s ease;
@@ -152,12 +157,12 @@ ul.menu.nav-menu li:nth-child(6) {
 }
 @media all and (max-width: 700px) {
   ul.menu.nav-menu li {
-    font-size: 50px;
+    font-size: 40px;
   }
 }
 @media (max-width: 365px) {
   ul.menu.nav-menu li {
-    font-size: 40px;
+    font-size: 30px;
   }
 }
 

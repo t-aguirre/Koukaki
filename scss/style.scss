@@ -34,6 +34,11 @@ ul.menu.nav-menu {
             font-size: 20px;
             padding-top: 5em;
             margin-bottom: 0;
+
+            @media all and (max-width: 700px) {
+            font-size: 15px;
+            }
+
         }
 
         a {
@@ -77,11 +82,11 @@ ul.menu.nav-menu {
         }
 
         @media all and (max-width: 700px) {
-            font-size: 50px;
+            font-size: 40px;
         }
 
         @media (max-width: 365px) {
-            font-size: 40px;
+            font-size: 30px;
         }
     }
 }
@@ -340,6 +345,7 @@ ul.menu {
         }
     }
 }
+
 
 // BANNER SECTION
 .banner {
