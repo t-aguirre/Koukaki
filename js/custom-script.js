@@ -4,10 +4,11 @@ document.querySelector('.menu-toggle').addEventListener('click', function () {
     const nav = document.querySelector('.main-navigation');
     const menu = document.querySelector('.menu');
     
-    // Check if the menu is already open (the 'toggled' class is managed by the parent theme)
-    if (nav.classList.contains('toggled')) {
+    // Check if the menu is already open
+    if (nav.classList.contains('is-open')) {
         // If open, hide the menu
         menu.style.display = 'none';
+        nav.classList.remove('is-open');
         this.setAttribute('aria-expanded', 'false'); // Update aria attribute for accessibility
         this.classList.remove('active'); // Remove 'active' class from the button
         document.body.style.overflow = ''; // Restore body scroll
@@ -15,6 +16,7 @@ document.querySelector('.menu-toggle').addEventListener('click', function () {
         // If closed, show the menu
         menu.style.display = 'flex';
         menu.style.flexDirection = 'column'; // Display links vertically
+        nav.classList.add('is-open'); 
         this.setAttribute('aria-expanded', 'true'); // Update aria attribute for accessibility
         this.classList.add('active'); // Add 'active' class to the button
         document.body.style.overflow = 'hidden'; // Disable body scroll when menu is open
@@ -34,7 +36,7 @@ menuLinks.forEach(link => {
         menu.style.display = 'none';
         menuToggle.setAttribute('aria-expanded', 'false');
         menuToggle.classList.remove('active');
-        document.querySelector('.main-navigation').classList.remove('toggled'); // 'toggled' class managed by parent theme
+        document.querySelector('.main-navigation').classList.remove('is-open');
         document.body.style.overflow = ''; // Restore body scroll
 
         // Get the target section ID from the href attribute (without the '#')

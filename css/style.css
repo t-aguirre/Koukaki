@@ -407,6 +407,10 @@ ul.menu li.studio::after {
   }
 }
 
+.main-navigation.is-open ul {
+  display: block;
+}
+
 .banner {
   position: relative;
   width: 100%;
